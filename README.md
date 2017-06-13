@@ -1,17 +1,24 @@
 ## In-Memory-File-System-in-C++ ##
 An in-memory File System in C++
 
-ls: Given a path in string format. If it is a file path, return a list that only contains this file's name. If it is a directory path, return the list of file and directory names in this directory. Your output (file and directory names together) should in lexicographic order.
+#"ls"#: Displays a list of directories and files in the current directory
 
-mkdir: Given a directory path that does not exist, you should make a new directory according to the path. If the middle directories in the path don't exist either, you should create them as well. This function has void return type.
+"mkdir path/directoryname": Creates a new directory in the current directory. It also creates intermediate directories in the path, if needed.
 
-addContentToFile: Given a file path and file content in string format. If the file doesn't exist, you need to create that file containing given content. If the file already exists, you need to append given content to original content. This function has void return type.
+"cd directoryname": Navigate to the directory 'directoryname'.
 
-readContentFromFile: Given a file path, return its content in string format.
+"cd ..": Go to the parent directory.
 
-Note:
-You can assume all file or directory paths are absolute paths which begin with / and do not end with / except that the path is just "/".
+"> filename.txt": Creates a new file with name 'filename.txt'in the current directory.
 
-You can assume that all operations will be passed valid parameters and users will not attempt to retrieve file content or list a directory or file that does not exist.
+"cat filename.txt": View the contents of the file 'filename.txt'.
 
-You can assume that all directory names and file names only contain lower-case letters, and same names won't exist in the same directory.
+"vi filename.txt "input String"": Add content to the file 'filename.txt'.
+
+"rm filename.txt": Delete the file 'filename.txt'
+
+"rm directoryname": Delete the directory 'directoryname'
+
+"cls": Clear screen
+
+"exit":Exit the program.
