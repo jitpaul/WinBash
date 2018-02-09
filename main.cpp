@@ -3,11 +3,11 @@
 
 int main() {
 	FileSystem obj;
-	string temp;
+	string str;
 	while (1) {
 		cout << obj.getDirectory() << ": ";
-		getline(cin, temp);
-		obj.parse(temp);
+		getline(cin, str);
+		obj.parse(str);
 	}
 	return 0;
 }
