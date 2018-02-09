@@ -1,11 +1,9 @@
 ## In-Memory-File-System-in-C++ ##
-An in-memory File System in C++ which allows basic operations like creating, deleting and moving of files and directories, reading and writing of files etc. It uniquely allow users to specify memory-size-limit for the file System inorder to prevent dynamic growth and subsequent program crash. It also supports copying of the entire virtual file system to disk. To restrict the memory-size, "<sys/resource.h>" library was used.  Also, "<experimental/filesystem>" library was used to write to disk.("<boost.filesystem>" can also be used for the same purpose).
+An in-memory File System in C++ which allows basic operations like creating, deleting and moving of files and directories, reading and writing of files etc. It uniquely allow users to specify memory-size-limit for the file System inorder to prevent dynamic growth and subsequent program crash. It also supports copying of the entire virtual file system to disk.
 
 Example commands:
 
 "ls": Displays a list of directories and files in the current directory.
-
-"mkdir path": Creates intermediate directories in the 'path', if needed.
 
 "mkdir directoryname": Creates a new directory 'directoryname' in the current directory. 
 
