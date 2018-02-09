@@ -60,3 +60,17 @@ void Directory::printAll() {
 string Directory::getUpdateDate() { return updateDate; }
 
 void Directory::setUpdateDate(string date) { updateDate = date; }
+
+
+void Directory::create(fs::path currPath) {
+	currPath /= name;
+	fs::create_directory(currPath);
+	for (pair<string, Directory*> tp : dir)
+		tp.second->create(currPath);
+
+	for (pair<string, File*> tp : file) {
+		std::fstream f(currPath.string() +"\\" +tp.first, std::ios::out);
+		f << tp.second->getContent();
+		f.close();
+	}
+}

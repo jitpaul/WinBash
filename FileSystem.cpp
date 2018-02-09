@@ -177,7 +177,10 @@
 
 	//save FileSystem to disk
 	void FileSystem::saveFS(string location) {
-
+		fs::path currPath;
+		if (location == "") currPath = fs::current_path();
+		else currPath = location;
+		root->create(currPath);
 	}
 
 	//load FileSystem from disk

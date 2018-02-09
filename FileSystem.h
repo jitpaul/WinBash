@@ -5,7 +5,6 @@
 #include <vector>
 #include <cstdlib>
 #include <regex>
-#include <experimental/filesystem>
 #include "file.h"
 #include "directory.h"
 
@@ -54,7 +53,7 @@ public:
 	void parse(string);
 
 	//save FileSystem to disk
-	void saveFS(string);
+	void saveFS(string loc = "");
 
 	//save FileSystem from disk
 	void loadFS(string);
