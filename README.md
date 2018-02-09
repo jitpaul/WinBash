@@ -1,17 +1,28 @@
 ## In-Memory-File-System-in-C++ ##
-An in-memory File System in C++
+An in-memory File System in C++ which allows basic operations like creating, deleting and moving of files and directories, reading and writing of files etc. It uniquely allow users to specify memory-size-limit for the file System inorder to prevent dynamic growth and subsequent program crash. It also supports copying of the entire virtual file system to disk. To restrict the memory-size, "<sys/resource.h>" library was used.  Also, "<experimental/filesystem>" library was used to write to disk.("<boost.filesystem>" can also be used for the same purpose).
 
-ls: Given a path in string format. If it is a file path, return a list that only contains this file's name. If it is a directory path, return the list of file and directory names in this directory. Your output (file and directory names together) should in lexicographic order.
+Example commands:
 
-mkdir: Given a directory path that does not exist, you should make a new directory according to the path. If the middle directories in the path don't exist either, you should create them as well. This function has void return type.
+"ls": Displays a list of directories and files in the current directory.
 
-addContentToFile: Given a file path and file content in string format. If the file doesn't exist, you need to create that file containing given content. If the file already exists, you need to append given content to original content. This function has void return type.
+"mkdir path": Creates intermediate directories in the 'path', if needed.
 
-readContentFromFile: Given a file path, return its content in string format.
+"mkdir directoryname": Creates a new directory 'directoryname' in the current directory. 
 
-Note:
-You can assume all file or directory paths are absolute paths which begin with / and do not end with / except that the path is just "/".
+"cd directoryname": Navigate to the directory 'directoryname'.
 
-You can assume that all operations will be passed valid parameters and users will not attempt to retrieve file content or list a directory or file that does not exist.
+"cd ..": Go to the parent directory.
 
-You can assume that all directory names and file names only contain lower-case letters, and same names won't exist in the same directory.
+"> filename.txt": Creates a new file with name 'filename.txt'in the current directory.
+
+"cat filename.txt": View the contents of the file 'filename.txt'.
+
+"vi filename.txt "input String"": Add content to the file 'filename.txt'.
+
+"rm filename.txt": Delete the file 'filename.txt'
+
+"rm directoryname": Delete the directory 'directoryname'
+
+"cls": Clear screen
+
+"exit":Exit the program.
