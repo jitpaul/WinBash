@@ -44,10 +44,14 @@ void Directory::setFile(string fileName, File* newFile) {
 	file[fileName] = newFile;
 }
 
-void Directory::deleteFile(string fileName) {
-	if (file.find(fileName) == file.end()) return;
+std::vector<FileBlock*> Directory::deleteFile(string fileName) {
+	if (file.find(fileName) == file.end()) return{};
+	std::vector<FileBlock*> ret;
+	for (FileBlock* tp : file[fileName]->fileBlocks)
+		ret.push_back(tp);
 	delete file[fileName];
 	file.erase(fileName);
+	return ret;
 }
 
 void Directory::printAll() {

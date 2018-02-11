@@ -8,6 +8,7 @@
 #include "file.h"
 #include "directory.h"
 
+#define DEFAULT_MEMORY_LIMIT 1000
 using std::string;
 using std::pair;
 using std::map;
@@ -20,9 +21,15 @@ using std::regex;
 class FileSystem {
 	Directory* root;
 	string currentDir;
-
+	int memoryLimit = DEFAULT_MEMORY_LIMIT;
+	std::vector <FileBlock*> fileBlocks;
 public:
+
 	FileSystem();
+
+	FileSystem(int);
+
+	void initializeMemory();
 
 	//Show Contents of the Directory
 	void ls();
@@ -60,4 +67,6 @@ public:
 
 	//reset FileSystem
 	void resetFS();
+
+	~FileSystem();
 };

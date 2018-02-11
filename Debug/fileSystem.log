@@ -1,3 +1,4 @@
-﻿  main.cpp
+﻿  FileBlock.cpp
+c:\users\user\documents\visual studio 2017\projects\main solution\filesystem\filesystem\in-memory-file-system-in-c-\fileblock.cpp(13): warning C4018: '<': signed/unsigned mismatch
   fileSystem.vcxproj -> C:\Users\USER\Documents\Visual Studio 2017\Projects\Main Solution\Debug\FileSystem.exe
   fileSystem.vcxproj -> C:\Users\USER\Documents\Visual Studio 2017\Projects\Main Solution\Debug\FileSystem.pdb (Partial PDB)

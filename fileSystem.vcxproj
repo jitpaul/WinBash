@@ -142,12 +142,14 @@
   <ItemGroup>
     <ClCompile Include="Directory.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileBlock.cpp" />
     <ClCompile Include="FileSystem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Directory.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="FileBlock.h" />
     <ClInclude Include="FileSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

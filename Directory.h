@@ -19,7 +19,7 @@ public:
 	void deleteDir(string);
 	File* getFile(string);
 	void setFile(string, File*);
-	void deleteFile(string);
+	std::vector<FileBlock*> deleteFile(string);
 	void printAll();
 	string getUpdateDate();
 	void setUpdateDate(string);

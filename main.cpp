@@ -2,10 +2,9 @@
 
 
 int main() {
-	FileSystem obj;
+	FileSystem obj(100);
 	string str;
-	int i = 1;
-	while (i++<10) {
+	while (true) {
 		cout << obj.getDirectory() << ": ";
 		getline(cin, str);
 		obj.parse(str);

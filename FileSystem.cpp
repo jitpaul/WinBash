@@ -4,7 +4,21 @@
 		FileSystem::FileSystem() {
 			root = new Directory("root");
 			currentDir = "root";
+			initializeMemory();
 		}
+
+		FileSystem::FileSystem(int limit):memoryLimit(limit) {
+			root = new Directory("root");
+			currentDir = "root";
+			initializeMemory();
+		}
+
+		void FileSystem::initializeMemory() {
+			int maxBlocks = memoryLimit / FileBlock::getSize();
+			for (int i = 0; i < maxBlocks; i++)
+				fileBlocks.push_back(new FileBlock());
+		}
+
 
 	    //Show Contents of the Directory
 	    void FileSystem::ls() {
@@ -59,7 +73,23 @@
 			    cout << "File does not exist." << endl;
 			    return;
 		    }
-		    tempDir->getFile(name)->setContent(content);
+			std::vector<FileBlock*> newBlocks;
+			int s = FileBlock::getSize();
+			int i = 0;
+			string temp;
+			while (i<content.size()) {
+				temp = content.substr(i,s);
+				if (fileBlocks.size() == 0) {
+					cout << " Memory Limit Exceeded." << endl;
+					for (FileBlock* tp : newBlocks) fileBlocks.push_back(tp);
+					return;
+				}
+				fileBlocks.back()->addContent(temp);
+				newBlocks.push_back(fileBlocks.back());
+				fileBlocks.pop_back();
+				i += s;
+			}
+		    tempDir->getFile(name)->setContent(newBlocks);
 	    }
 	
 	    //Delete File or Directory
@@ -67,7 +97,8 @@
 		    Directory* tempDir = nullptr; 
 		    cd("",tempDir);
 		    tempDir->deleteDir(name);
-		    tempDir->deleteFile(name);
+			std::vector<FileBlock*> freeBlocks  = tempDir->deleteFile(name);
+			fileBlocks.insert(fileBlocks.begin()+fileBlocks.size(), freeBlocks.begin(), freeBlocks.end());
 		    return;
 	    }
 
@@ -191,4 +222,9 @@
 	//reset FileSystem
 	void FileSystem::resetFS() {
 
+	}
+
+	FileSystem::~FileSystem() {
+		for (FileBlock* fb : fileBlocks)
+			delete fb;
 	}
