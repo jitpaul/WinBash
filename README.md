@@ -1,4 +1,4 @@
-Winbash is a bash based In-Memory File System in C++ for Windows. 
+Winbash is a bash based In-Memory File System for Windows. 
 User can specify max heap-memory-size to prevent dynamic growth and subsequent program crash. 
 Default file-block-size is 100bytes and default heap-memory-size is 10000bytes. 
 Winbash can be saved to disk for later use. Saved content can be mounted back to Winbash
