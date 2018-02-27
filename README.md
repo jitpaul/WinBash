@@ -1,4 +1,3 @@
-## In-Memory-File-System-in-C++ ##
 Winbash is a bash based In-Memory File System in C++ for Windows. 
 User can specify max heap-memory-size to prevent dynamic growth and subsequent program crash. 
 Default file-block-size is 100bytes and default heap-memory-size is 10000bytes. 
