@@ -251,7 +251,7 @@
 		    case 9://rm				
 			    delFile(name);
 			    break;
-		    case 10://rm				
+		    case 10://rmdir				
 			    delDir(name);
 			    break;
 			case 11://mountfs				
