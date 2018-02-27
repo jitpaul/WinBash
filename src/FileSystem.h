@@ -2,7 +2,7 @@
 #include <string>
 #include "file.h"
 #include "directory.h"
-#define DEFAULT_MEMORY_LIMIT 1000
+#define DEFAULT_MEMORY_LIMIT 10000
 
 class FileSystem {
 	
