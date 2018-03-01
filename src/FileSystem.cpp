@@ -66,8 +66,21 @@
 	    }
 
 
+		//Get the user input to add to the File
+		std::string FileSystem::getInputText() {
+			std::cout << "         Save ':wq',        Exit ':q' "<<"\n\n";
+			std::string ret="",temp;
+			while (true) {
+				getline(std::cin, temp);
+				if (temp==":wq") return ret;
+				else if (temp == ":q") return "";
+				ret.append(temp + "\n");
+			}
+		}
+
 	    //Append content to File
-	    void FileSystem::addToFile(std::string name,std::string content) {
+	    void FileSystem::addToFile(std::string name) {
+			std::string content = getInputText();
 		    Directory* tempDir=nullptr;
 		    cd("", tempDir);
 		    if (!tempDir->fileExists(name)) {
@@ -169,15 +182,9 @@
 			    cmd = temp.substr(0, pos1);
 			    if (cmd == "mkdir") { command = 2; path = temp.substr(pos1 + 1);}
 				else if (cmd == "rmdir") { command = 10; name = temp.substr(pos1 + 1); }
-			    else if (cmd == ">" || "touch") { command = 3; fileName = temp.substr(pos1 + 1);}
+			    else if (cmd == ">" || cmd=="touch") { command = 3; fileName = temp.substr(pos1 + 1);}
 			    else if (cmd == "cat") { command = 4; fileName = temp.substr(pos1 + 1);}
-			    else if (cmd == "vi") { 
-					command = 8;
-				    auto pos2 = temp.find("\"",pos1+1);
-				    auto pos3 = temp.rfind("\"");
-				    fileName = temp.substr(pos1 + 1, (temp.find(" ", pos1 + 1))-pos1-1);
-				    content = temp.substr(pos2+1,pos3-pos2-1);
-				}
+			    else if (cmd == "vi") { command = 8; fileName = temp.substr(pos1 + 1); }
 			    else if (cmd == "rm") { command = 9; name = temp.substr(pos1 + 1);}
 			    else if (cmd == "cd") { command = 7; path = temp.substr(pos1 + 1);}
 				else if (cmd == "savefs") { command = 12; path = temp.substr(pos1 + 1); }
@@ -214,7 +221,7 @@
 				"(touch) [0-9A-Za-z]+(.)[A-Za-z]+|" +
 			    "(cat) [0-9A-Za-z]+(.)[A-Za-z]+|" +
 			    "(rmdir) [0-9A-Za-z]+|" +
-			    "(vi) [0-9A-Za-z]+(.)[A-Za-z]+ \".*\"";		  
+			    "(vi) [0-9A-Za-z]+(.)[A-Za-z]+";		  
 		    std::regex pt(exp);
 		    if (!std::regex_match(temp, pt)) {
 			    std::cout << "Incorrect Command." << std::endl;
@@ -246,7 +253,7 @@
 			    cd(path,tempPtr);
 			    break;
 		    case 8://vi	
-			    addToFile(fileName, content);
+			    addToFile(fileName);
 			    break;
 		    case 9://rm				
 			    delFile(name);

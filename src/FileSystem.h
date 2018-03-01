@@ -13,11 +13,12 @@ class FileSystem {
 	void mkdir(std::string); //Make Directory
 	void createFile(std::string); //Create File	
 	std::string viewFile(std::string); //View File
-	void addToFile(std::string, std::string); //Add to File
+	void addToFile(std::string); //Add to File
 	void delFile(std::string); //Delete File
 	void delDir(std::string); //Delete Directory	
 	void cd(std::string, Directory*&); //Navigate to Directory
 	std::string getDirectory(); //Get the display path in the console window
+	std::string getInputText(); //Get the user input to add to the File
 	void parse2(std::string, int&, std::string &, std::string &, std::string &, std::string &); //Helper Function to parse input string
 	void parse(std::string); //Parse input string
 	void saveFS(std::string loc = ""); //Save FileSystem to disk

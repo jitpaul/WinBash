@@ -27,7 +27,7 @@ Supported commands:
 
 "cat filename.txt": View the contents of the file 'filename.txt'.
 
-"vi filename.txt "input String"": Append content to the file 'filename.txt'.
+"vi filename.txt": Append content to the file 'filename.txt'.
 
 "rm filename.txt": Delete the file 'filename.txt'
 
